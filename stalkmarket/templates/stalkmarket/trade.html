@@ -1,0 +1,33 @@
+{% extends "stalkmarket/base.html" %}
+{% block content %}
+<div class="col-md-12">
+    <div class='row'>
+        <div class='col-md-6'>
+            <h1>Trading Post</h1>
+        </div>
+        <div class='col-md-6 right-align'>
+            <a class="btn btn-secondary" href="{% url 'post-trade' %}" role="button">Request Items</a>
+        </div>
+    </div>
+    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th class="th-sm">Time Posted</th>
+            <th class='th-sm'>Item Requested</th>
+            <th class='th-sm'>User</th>
+            <th class='th-sm'>Dodo Code</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for post in trade_list %}
+            <tr>
+                <td>{{post.pub_date|date:"g:i a"}}</td>
+                <td>{{post.item}}</td>
+                <td>{{post.user}}</td>
+                <td>{{post.DodoCode}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
