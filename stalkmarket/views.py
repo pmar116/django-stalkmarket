@@ -8,20 +8,20 @@ from . import helper
 
 class stalkmarketView(generic.ListView):
     template_name='stalkmarket/stalkmarket.html'
+    context_object_name = 'stalk_list'
 
-    def get(self, request, *args, **kwargs):
+    def get_queryset(self):
         recent = Stalk.objects.filter(Q(morning=helper.ismorning()) & Q(pub_date=datetime.date.today()))
-        context = {
-            'stalk_list' : recent
-        }
-        return render(request, 'stalkmarket/stalkmarket.html', context)
+        return recent
     
 
 class tradingView(generic.ListView):
-    model = Trade
     context_object_name='trade_list'
-    ordering=['-pub_date']
     template_name='stalkmarket/trade.html'
+
+    def get_queryset(self):
+        recent = Trade.objects.order_by('-pub_time')[:20]
+        return recent
 
 class poststalk(generic.CreateView):
     model=Stalk

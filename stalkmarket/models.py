@@ -23,5 +23,8 @@ class Trade(models.Model):
     user = models.CharField(max_length=50)
     DodoCode = models.CharField(max_length=50, blank=True)
 
+    def was_published_recently(self):
+        return self.pub_time >= datetime.datetime.now() - datetime.timedelta(days=14)
+
     def get_absolute_url(self):
         return reverse('trade')
