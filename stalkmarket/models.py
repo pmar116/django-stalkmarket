@@ -5,6 +5,7 @@ from django.utils import timezone
 import datetime
 from . import helper
 
+
 class Stalk(models.Model):
     pub_date = models.DateTimeField("Date Published", default=datetime.date.today())
     pub_time = models.DateTimeField("Time Published", default=timezone.now)
@@ -12,7 +13,7 @@ class Stalk(models.Model):
     price = models.IntegerField(validators=[MaxValueValidator(1000)])
     user = models.CharField(max_length=50)
     DodoCode = models.CharField(max_length=50, blank=True)
-
+    
     def get_absolute_url(self):
         return reverse('stalkmarket')
 
@@ -25,6 +26,6 @@ class Trade(models.Model):
 
     def was_published_recently(self):
         return self.pub_time >= datetime.datetime.now() - datetime.timedelta(days=14)
-
+    
     def get_absolute_url(self):
         return reverse('trade')
