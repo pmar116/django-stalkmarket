@@ -1,5 +1,6 @@
 # Django
 migrations/
+deploy.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

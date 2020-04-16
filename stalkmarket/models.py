@@ -7,7 +7,7 @@ from . import helper
 
 class Stalk(models.Model):
     pub_date = models.DateTimeField("Date Published", default=datetime.date.today())
-    pub_time = models.DateTimeField("Time Published", default=datetime.datetime.now)
+    pub_time = models.DateTimeField("Time Published", default=timezone.now)
     morning = models.BooleanField(default=helper.ismorning())
     price = models.IntegerField(validators=[MaxValueValidator(1000)])
     user = models.CharField(max_length=50)
@@ -18,7 +18,7 @@ class Stalk(models.Model):
 
 class Trade(models.Model):
     pub_date = models.DateTimeField("Date Published", default=datetime.date.today())
-    pub_time = models.DateTimeField("Time Published", default=datetime.datetime.now)
+    pub_time = models.DateTimeField("Time Published", default=timezone.now)
     item = models.CharField(max_length=50)
     user = models.CharField(max_length=50)
     DodoCode = models.CharField(max_length=50, blank=True)
