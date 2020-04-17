@@ -17,10 +17,6 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '%gzu2sbriagx1aztdaajojb*7i75(awwejtw^*(lsjj%fkf$4x')
 
@@ -124,7 +120,6 @@ USE_TZ = True
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 # The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
 
