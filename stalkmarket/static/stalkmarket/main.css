@@ -72,3 +72,26 @@ a.sort-by:after {
 	border-top-color: #ffffff;
 	margin-top: 1px;
 }
+
+.main-container{
+  padding-bottom: 2.5rem;
+}
+
+.footer {
+  position: absolute;
+  background-color: #5f788a;
+  width: 100%;
+  bottom: 0;
+  height: 2.5rem;         
+}
+
+.center-children {
+  text-align: center;
+}
+
+.center-children a {
+  color: #cbd5db;
+  line-height: 2.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;  
+}
